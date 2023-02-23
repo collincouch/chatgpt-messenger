@@ -4,8 +4,9 @@ type Props = {
   message: DocumentData;
 };
 export default function Message({ message }: Props) {
+  const isChatGPT = message.user.name === "ChatGPT";
   return (
-    <div>
+    <div className={`py-5 text-white ${isChatGPT && "bg-[#434654]"}`}>
       <div>
         <img src={message.user?.avatar} alt="" className="h-8 w-8" />
         <p className="pt-1 text-sm">{message.text}</p>
